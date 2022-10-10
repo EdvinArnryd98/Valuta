@@ -7,7 +7,7 @@ typedef struct
     char currency[20];
     int penny;
 
-} Person;
+} Money;
 
 int main()
 {
@@ -20,13 +20,13 @@ int main()
         return 1;
     }
 
-    Person persons[100];
+    Money moneys[100];
     int read = 0;
     int records = 0;
 
     do
     {
-        Person *p = persons + records;
+        Money *p = moneys + records;
         read = fscanf(file, "%s %d\n", &p->currency, &p->penny);
 
         if (read == 2)
@@ -54,12 +54,12 @@ int main()
 
         if (i == records - 1)
         {
-            printf("1 %s Kostar %d pennys.", persons[i].currency, persons[i].penny);
+            printf("1 %s costs %d pennys.", moneys[i].currency, moneys[i].penny);
             // printf("\n");
         }
         else
         {
-            printf("1 %s Kostar %d pennys, ", persons[i].currency, persons[i].penny);
+            printf("1 %s costs %d pennys, ", moneys[i].currency, moneys[i].penny);
             // printf("\n");
         }
     }
